@@ -107,7 +107,7 @@ for c, value in enumerate(mnfnNumbers):
     #OPEN INTERNET EXPLORER
     chrome = webdriver.Ie() #changed to internet explorer because Chrome does not have all elements showing
     actions = ActionChains(chrome)
-    #GO TO MLNR WEB PAGE
+    #GO TO WEBAPP PAGE
     chrome.get('http://webapplink.com/Default.aspx') #goes to the home page
     chrome.get('http://webapplink.com/AccountRef.aspx') #goes to the loss run page
     wait = WebDriverWait(chrome, 5)
@@ -223,7 +223,7 @@ for accountName, mnfnNumber, programType, policyInception, renewalDate in zip(ac
         actions = ActionChains(chrome)
         wait = WebDriverWait(chrome, 10)
 
-        #GO TO MLNR WEB PAGE
+        #GO TO WEBAPP PAGE
         chrome.get('http://webapplink.com/Default.aspx') #goes to the home page
         time.sleep(sleepTimer)
         chrome.get('http://webapplink.com/AccountRef.aspx') #goes to the account reference page
