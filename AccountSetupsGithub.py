@@ -81,7 +81,7 @@ dfem['Renewal Date'] = dfem['Effective Date']
 # REFORMAT INCEPTION DATE
 dfem['Effective Date'] = dfem['Effective Date'].dt.strftime("%d %b %y")
 
-#REFORMAT RENEWAL DATE
+# REFORMAT RENEWAL DATE
 dfem['Renewal Date'] = dfem['Renewal Date'].dt.strftime("%m-%d")
 
 # DROP UNNECCESSARY COLUMNS
@@ -115,12 +115,12 @@ for c, value in enumerate(mnfnNumbers):
     chrome.find_element_by_name('search$button').click() #presses the search button
     try:
 
-#FIND THE ACCOUNT
+# FIND THE ACCOUNT
         try:
             element = wait.until(EC.presence_of_element_located((By.NAME, 'account$edit$button')))
             element = wait.until(EC.element_to_be_clickable((By.NAME, 'account$edit$button')))
             time.sleep(sleepTimer)
-#FIND THE LOSS RUN
+# FIND THE LOSS RUN
             chrome.find_element_by_name('account$edit$button').click() #edit account
             time.sleep(sleepTimer)
             try:
@@ -142,7 +142,7 @@ for c, value in enumerate(mnfnNumbers):
                         chrome.switch_to_window(handle)
                     element = wait.until(EC.presence_of_element_located((By.NAME, 'LossIDbutton')))
                     element = wait.until(EC.element_to_be_clickable((By.NAME, 'LossIDbutton')))
-#WHEN BOTH ACCOUNT AND LOSS RUN ARE PRESENT
+# WHEN BOTH ACCOUNT AND LOSS RUN ARE PRESENT
                 loopCount = str(i)
                 f = open(logName, 'a') # Open Log File
                 f.write('\n' + value + ',' + ' Account and Loss Run Present') #Log Success in File
@@ -155,7 +155,7 @@ for c, value in enumerate(mnfnNumbers):
                 chrome.quit()
 ##          ACCOUNT AND LOSS RUN BOTH EXIST
             except:
-#WHEN ACCOUNT IS PRESENT BUT NOT LOSS RUN
+# WHEN ACCOUNT IS PRESENT BUT NOT LOSS RUN
                 loopCount = str(i)
                 f = open(logName, 'a') # Open Log File
                 f.write('\n' + value + ',' + ' Account only') #Log Success in File
@@ -168,7 +168,7 @@ for c, value in enumerate(mnfnNumbers):
                 chrome.quit()
 ##          ONLY THE ACCOUNT EXISTS
         except:
-#WHEN NEITHER ACCOUNT OR LOSS RUN ARE PRESENT
+# WHEN NEITHER ACCOUNT OR LOSS RUN ARE PRESENT
             loopCount = str(i)
             f = open(logName, 'a') # Open Log File
             f.write('\n' + value + ',' + ' No account or loss run') #Log Success in File
